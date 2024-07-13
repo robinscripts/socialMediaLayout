@@ -25,7 +25,7 @@ const listItems = [
   { icon: <Settings />, text: "Setting" },
   { icon: <AccountBox />, text: "Profile" },
 ];
-function SideBar() {
+function SideBar({setMode, mode}) {
   return (
     <Box flex={1} p={2} sx={{ display: { xs: "none", sm: "block" } }}>
       <Box position="fixed">
@@ -51,7 +51,9 @@ function SideBar() {
               <ListItemIcon>
                 <ModeNightIcon />
               </ListItemIcon>
-              <Switch defaultChecked />
+              <Switch onClick={()=>{
+                setMode(mode=="light"?"dark":"light");
+              }} defaultChecked />
             </ListItemButton>
           </ListItem>
         </List>
